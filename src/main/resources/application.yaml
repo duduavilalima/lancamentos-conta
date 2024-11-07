@@ -1,0 +1,45 @@
+server:
+  port: 9090
+  servlet:
+    contextPath: /
+
+spring:
+  application:
+    name: API Lancamentos
+
+  output:
+    ansi:
+      enabled: ALWAYS
+
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+        show_sql: true
+    hibernate:
+      ddl-auto: none
+
+  tomcat:
+    initial-size: 5
+    max-active: 25
+
+  datasource:
+    url: jdbc:h2:mem:contadb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+  h2:
+    console:
+      enabled: true
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    root: INFO
